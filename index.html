@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-aFSOxcSKibwjCbyaaU98fpjCbIRwqZc7CBUhdGmwKtA='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#183F35">
+  <title>SteepSignal · Tea trends. Clear insights.</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiNEQ0U3RDgiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxODNGMzUiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAyNGgyNHY3YzAgNi01IDEwLTEyIDEwcy0xMi00LTEyLTEwWm0yNCAyaDNhNSA1IDAgMCAxIDAgMTBoLTVNMTYgNDRoMTVNMjMgMjFjLTctNy00LTE0IDktMTcgMyAxMC0yIDE2LTkgMTdaTTIyIDIybDctMTIiLz48L2c+PC9zdmc+Cg==">
+  <style>/* SteepSignal: an ivory-and-forest research space. No remote font dependencies. */
+:root {
+  --ivory: #f7f4ec;
+  --forest: #183f35;
+  --forest-light: #245347;
+  --sage: #dce7d8;
+  --sage-soft: #eef3eb;
+  --amber: #b77928;
+  --amber-ink: #77501c;
+  --ink: #26332d;
+  --muted: #5f6d63;
+  --line: #dddeda;
+  --surface: #fffefa;
+  --danger: #963f32;
+  --heading: Georgia, 'Times New Roman', serif;
+  --body: 'Aptos', 'Segoe UI', system-ui, sans-serif;
+  --radius: 15px;
+  --shadow: 0 3px 14px #183f3505;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ivory); color: var(--ink); font: 14px/1.55 var(--body); }
+a { color: var(--forest); text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 100; background: white; padding: 14px; border-radius: 8px; }
+.skip-link:focus { top: 16px; }
+.icon { width: 20px; height: 20px; flex: 0 0 auto; vertical-align: middle; }
+aside { position: fixed; inset: 0 auto 0 0; width: 250px; background: var(--forest); color: #e8eee5; padding: 34px 22px 24px; display: flex; flex-direction: column; overflow-y: auto; }
+.logo { display: grid; grid-template-columns: 38px 1fr; gap: 0 9px; color: #fffdf4; text-decoration: none; align-items: center; }
+.logo img { grid-row: 1; }
+.brand-name { font: 600 26px/1.2 var(--heading); letter-spacing: -.8px; }
+.logo .tagline { grid-column: 1/-1; font: 11px/1.5 var(--body); letter-spacing: .3px; color: #c3d3c5; margin-top: 13px; }
+.navlabel { font-size: 10px; letter-spacing: 1.8px; color: #b7cdbb; margin: 49px 12px 17px; }
+nav { display: grid; gap: 6px; }
+nav a { display: flex; gap: 12px; color: #d5e1d5; text-decoration: none; align-items: center; min-height: 47px; padding: 12px 13px; border-radius: 9px; font-size: 13px; border: 1px solid transparent; transition: background .15s; }
+nav a:hover { background: #ffffff0b; color: white; }
+nav a.active { background: var(--sage); color: var(--forest); font-weight: 650; box-shadow: 0 3px 10px #0000000b; }
+nav a.active::after { content: ''; width: 5px; height: 5px; margin-left: auto; background: var(--forest); border-radius: 100%; }
+.sidefoot { margin-top: auto; padding: 44px 12px 0; font-size: 12px; position: relative; }
+.sidefoot small { display: block; color: #bfd0c1; font-size: 12px; line-height: 1.8; margin-top: 12px; }
+.scope-dot { display: inline-block; width: 6px; height: 6px; background: #c7d8ad; border-radius: 100%; margin-right: 5px; }
+.sidebar-leaf { color: #9db49c; font: 70px var(--heading); position: absolute; right: 0; bottom: -12px; opacity: .4; }
+#menu-toggle { display: none; }
+.shell { margin-left: 250px; min-width: 0; }
+header { min-height: 76px; background: #f7f4ecf7; border-bottom: 1px solid var(--line); padding: 16px 38px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.workspace-name { font-size: 10px; letter-spacing: 1.65px; color: var(--forest); font-weight: 650; }
+.workspace-name b { font-weight: 400; color: var(--muted); letter-spacing: .2px; margin-left: 10px; }
+.demo { display: inline-flex; align-items: center; gap: 7px; background: #f4e8d0; color: #6d4818; border: 1px solid #d8bd85; padding: 8px 12px; border-radius: 6px; font-size: 11px; font-weight: 650; letter-spacing: .1px; line-height: 1.5; }
+main { max-width: 1510px; margin: auto; padding: 36px 38px; }
+h1 { font: 400 clamp(30px, 3.2vw, 43px)/1.16 var(--heading); letter-spacing: -1.15px; margin: 10px 0 14px; color: var(--forest); }
+h2 { font: 500 23px/1.3 var(--heading); letter-spacing: -.4px; color: var(--forest); margin: 0 0 9px; }
+h3 { font-size: 13px; font-weight: 650; color: var(--forest); margin: 20px 0 7px; }
+p { margin: 10px 0; }
+.eyebrow { font-size: 10px; letter-spacing: 2px; color: #577154; font-weight: 700; display: flex; gap: 8px; align-items: center; }
+.eyebrow .icon { width: 16px; height: 16px; }
+.sub { color: var(--muted); line-height: 1.7; margin: 0 0 18px; font-size: 13px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-width: 0; }
+.row > * { min-width: 0; }
+.page-intro { position: relative; min-height: 137px; margin-bottom: 26px; padding-right: 8px; align-items: flex-end; }
+.page-intro > div:first-child { max-width: 64%; position: relative; z-index: 1; }
+.page-intro .sub { max-width: 650px; margin: 0; }
+.page-intro .actions { margin-bottom: 5px; justify-content: flex-end; position: relative; z-index: 1; }
+.botanical { position: absolute; width: 156px; height: 140px; right: 0; top: -22px; color: #5e8054; opacity: .65; pointer-events: none; }
+.page-intro:has(.botanical) .actions { margin-top: 90px; }
+.actions { display: flex; gap: 9px; flex-wrap: wrap; align-items: center; }
+button, .button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; background: var(--surface); border: 1px solid #cbd2c7; border-radius: 7px; padding: 10px 14px; color: var(--forest); font-size: 12px; font-weight: 600; line-height: 1.4; cursor: pointer; text-decoration: none; transition: background .15s, border-color .15s; }
+button:hover, .button:hover { background: var(--sage-soft); border-color: #81967a; }
+button.primary { background: var(--forest); color: #fffdf5; border-color: var(--forest); }
+button.primary:hover { background: var(--forest-light); }
+.danger { color: var(--danger); }
+.danger:hover { border-color: var(--danger); background: #faf0ec; }
+.filters { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 21px; display: flex; gap: 15px 13px; flex-wrap: wrap; align-items: flex-end; margin: 24px 0 13px; box-shadow: var(--shadow); }
+.filters label { flex: 1 1 125px; }
+.filters label:has(input[type='search']) { flex: 2 1 230px; }
+.filters label:has(#geo) { flex: 1.5 1 210px; }
+label { color: #52634f; font-size: 11px; font-weight: 600; display: flex; flex-direction: column; gap: 8px; }
+.label-text { display: flex; gap: 6px; align-items: center; }
+.label-text .icon { width: 15px; height: 15px; }
+input, select, textarea { width: 100%; min-width: 0; min-height: 44px; color: var(--ink); font-size: 13px; font-weight: 400; border: 1px solid #cdd4c9; padding: 10px 12px; border-radius: 6px; background: #fffefa; }
+input::placeholder, textarea::placeholder { color: #687568; opacity: 1; }
+input:hover, select:hover, textarea:hover { border-color: #83997b; }
+textarea { min-height: 94px; resize: vertical; }
+input[type=file] { font-size: 12px; padding: 8px; }
+input::file-selector-button { border: 0; border-radius: 4px; background: var(--sage); padding: 8px; margin-right: 8px; color: var(--forest); cursor: pointer; }
+.legend { display: block; font-size: 11px; line-height: 1.7; color: var(--muted); }
+.filters + .legend { margin: 0 4px 25px; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 26px 0; }
+.card { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); }
+.stat { padding: 22px; position: relative; overflow: hidden; }
+.stat .label { color: var(--muted); font-size: 12px; padding-right: 32px; display: block; }
+.stat .stat-icon { position: absolute; top: 19px; right: 17px; color: #577154; background: var(--sage-soft); padding: 7px; width: 34px; height: 34px; border-radius: 9px; }
+.stat strong { display: block; color: var(--forest); font: 550 34px/1.25 var(--body); letter-spacing: -1.1px; font-variant-numeric: tabular-nums; margin: 18px 0 10px; }
+.stat small { color: #586f50; font-size: 11px; }
+.stat:last-child { background: var(--sage-soft); border-color: #d0dcca; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 22px; margin: 24px 0; }
+.twocol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 24px 0; }
+.chart { height: 215px; width: 100%; margin: 18px 0 10px; overflow: visible; }
+.chart text { fill: #596b5b; font: 11px var(--body); }
+.chart line { stroke: #dfe5d9; stroke-dasharray: 3 4; }
+.chart polyline { fill: none; stroke: var(--forest); stroke-width: 3; }
+.chart polygon { fill: var(--sage); fill-opacity: .65; }
+.chart circle { fill: var(--forest); stroke: var(--surface); stroke-width: 2; }
+.chart-legend { display: inline-flex; gap: 7px; align-items: center; }
+.chart-legend::before { content: ''; width: 20px; height: 3px; background: var(--forest); border-radius: 2px; }
+.tablewrap { width: 100%; max-width: 100%; overflow-x: auto; border-radius: 7px; }
+table { width: 100%; border-collapse: collapse; margin-top: 17px; text-align: left; font-size: 13px; }
+th { color: #596957; background: var(--sage-soft); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+td, th { padding: 14px 10px; border-bottom: 1px solid #e2e5dc; }
+td { font-variant-numeric: tabular-nums; }
+td small { display: block; color: var(--muted); font-size: 11px; margin-top: 5px; }
+td:first-child { width: 48%; }
+td:first-child button { text-align: left; justify-content: flex-start; border: 0; padding: 0; font-size: 13px; background: transparent; min-height: 35px; }
+td:first-child button:hover { text-decoration: underline; text-underline-offset: 4px; }
+td:last-child button { width: 44px; height: 44px; font-size: 20px; padding: 0; background: transparent; border-color: #e1e5da; }
+tbody tr:hover { background: #f5f7f0; }
+.tag { display: inline-flex; align-items: center; gap: 5px; background: var(--sage-soft); color: #46603d; font-size: 10px; padding: 5px 9px; border: 1px solid #dce5d5; border-radius: 5px; font-weight: 550; line-height: 1.6; }
+.growth { color: var(--forest); font-size: 12px; font-weight: 600; white-space: nowrap; }
+.barrow { display: grid; grid-template-columns: minmax(105px, 145px) minmax(35px, 1fr) 32px; gap: 12px; align-items: center; font-size: 12px; margin: 22px 0; }
+.barrow > span { display: flex; align-items: center; gap: 7px; line-height: 1.4; }
+.barrow .icon { width: 17px; height: 17px; color: #59714f; }
+.barrow b { text-align: right; font-variant-numeric: tabular-nums; }
+.bar { background: #e9eee2; border-radius: 3px; height: 8px; overflow: hidden; }
+.bar i { display: block; background: #6e8a60; height: 100%; border-radius: 3px; }
+.note { padding: 16px 18px; border-left: 3px solid #8a9d75; background: #eef1e6; border-radius: 0 8px 8px 0; color: #52634d; font-size: 12px; line-height: 1.8; margin: 21px 0 0; }
+.evidence { border-bottom: 1px solid var(--line); padding: 19px 0; line-height: 1.75; overflow-wrap: anywhere; }
+.evidence:last-child { border-bottom: 0; }
+.evidence p { margin: 10px 0; }
+.evidence small { color: var(--muted); font-size: 11px; line-height: 1.8; }
+.evidence a { font-weight: 600; }
+.evidence .row button { padding: 0; border: 0; background: transparent; justify-content: flex-start; }
+.listcard { margin: 20px 0; }
+.listcard h2 { margin-top: 8px; }
+.experiment-card { border-top: 3px solid #879b70; }
+.opportunity-card { border-top: 3px solid var(--amber); }
+.opportunity-card h3 { font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; }
+.opportunity-card .actions { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 18px; }
+.formgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 25px; }
+.formgrid .wide { grid-column: 1/-1; }
+.formgrid button { justify-self: start; }
+dialog { border: 1px solid #c7d1bf; border-radius: 17px; background: var(--surface); max-width: 780px; width: calc(100vw - 36px); padding: 28px; color: var(--ink); max-height: 90dvh; overflow-y: auto; box-shadow: 0 20px 70px #183f3530; }
+dialog::backdrop { background: #142c24a6; }
+dialog > .row:first-child { position: sticky; top: -28px; z-index: 2; background: var(--surface); padding: 10px 0; }
+dialog h1 { font-size: 34px; margin-top: 20px; }
+dialog h3 { padding-top: 16px; border-top: 1px solid var(--line); margin-top: 25px; }
+.empty { text-align: center; padding: 45px 25px; color: var(--muted); font-size: 13px; }
+.empty::before { content: ''; display: block; width: 38px; height: 38px; background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiNEQ0U3RDgiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxODNGMzUiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAyNGgyNHY3YzAgNi01IDEwLTEyIDEwcy0xMi00LTEyLTEwWm0yNCAyaDNhNSA1IDAgMCAxIDAgMTBoLTVNMTYgNDRoMTVNMjMgMjFjLTctNy00LTE0IDktMTcgMyAxMC0yIDE2LTkgMTdaTTIyIDIybDctMTIiLz48L2c+PC9zdmc+Cg==') center / contain no-repeat; opacity: .65; margin: 0 auto 16px; }
+.hero { position: relative; background: var(--sage); border: 1px solid #cad8c3; border-radius: var(--radius); padding: 29px; margin: 26px 0; display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+.hero h2 { margin-top: 9px; font-size: 27px; }
+.hero p { max-width: 620px; line-height: 1.7; margin: 10px 0 0; color: #4d6049; font-size: 13px; }
+.hero .eyebrow { color: #4c6743; }
+.hero button { flex-shrink: 0; }
+.source { padding: 21px 0; border-bottom: 1px solid var(--line); }
+.source h3 { margin: 0 0 5px; }
+.source small { color: var(--muted); font-size: 11px; }
+.source .tag { flex-shrink: 0; }
+#import-result:not(:empty), #manual-error:not(:empty) { margin-top: 16px; }
+#manual-error { color: var(--danger); line-height: 1.7; }
+#toast { position: fixed; bottom: 22px; right: 22px; z-index: 100; background: var(--forest); color: #fffdf5; padding: 16px 20px; border-radius: 9px; display: none; max-width: min(420px, calc(100vw - 32px)); box-shadow: 0 8px 30px #183f3526; font-size: 13px; }
+footer { padding: 10px 38px 30px; font-size: 10px; color: var(--muted); display: flex; justify-content: space-between; gap: 20px; }
+.weekly-report { border-top: 4px solid var(--forest); margin-top: 26px; padding: 32px; }
+.weekly-report > h1 { font-size: 34px; }
+.weekly-report > h2 { border-top: 1px solid var(--line); padding-top: 23px; margin-top: 28px; }
+.weekly-report > h1 + p { color: #5c714e; font-style: italic; }
+.week-control { width: min(310px, 100%); background: #edeedc; padding: 15px 18px; border-radius: 10px; }
+@media (min-width: 1300px) { .filters label:has(input[type='search']) { flex-basis: calc(100% - 160px); } .filters label:has(#days) { flex: 0 1 140px; } }
+@media (max-width: 1150px) {
+  aside { width: 224px; padding: 28px 16px; }
+  .shell { margin-left: 224px; }
+  .brand-name { font-size: 23px; }
+  main { padding: 28px; }
+  header { padding: 16px 28px; }
+  .workspace-name b { display: none; }
+  .grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page-intro { align-items: flex-start; flex-direction: column; }
+  .page-intro > div:first-child { max-width: 100%; padding-right: 80px; }
+  .page-intro .actions { justify-content: flex-start; }
+  .page-intro:has(.botanical) .actions { margin-top: 5px; }
+  .botanical { width: 110px; opacity: .45; }
+  footer { padding-left: 28px; padding-right: 28px; }
+}
+@media (max-width: 800px) {
+  aside { position: static; width: auto; overflow: visible; padding: 18px 22px; }
+  .brand-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { grid-template-columns: 34px 1fr; }
+  .logo img { width: 34px; height: 34px; }
+  .brand-name { font-size: 25px; }
+  .logo .tagline { font-size: 10px; margin-top: 7px; }
+  #menu-toggle { display: inline-flex; color: #fffdf5; border-color: #6b8976; background: transparent; }
+  #menu-toggle:hover { background: #ffffff14; }
+  nav { display: none; margin-top: 20px; grid-template-columns: 1fr 1fr; }
+  aside.menu-open nav { display: grid; }
+  .navlabel, .sidefoot { display: none; }
+  .shell { margin: 0; }
+  header { min-height: 62px; padding: 12px 22px; }
+  .workspace-name { font-size: 9px; letter-spacing: 1px; }
+  .twocol { gap: 16px; }
+  .page-intro > div:first-child { padding-right: 65px; }
+  .row { flex-wrap: wrap; }
+}
+@media (max-width: 500px) {
+  aside { padding: 16px; }
+  #menu-toggle { min-width: 44px; padding: 10px; }
+  #menu-toggle span { display: none; }
+  header { padding: 11px 16px; }
+  .workspace-name { display: none; }
+  .demo { font-size: 10px; padding: 8px 10px; }
+  main { padding: 25px 16px; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 23px; }
+  .page-intro { margin-bottom: 18px; }
+  .page-intro > div:first-child { padding-right: 0; }
+  .botanical { width: 70px; height: 80px; top: -17px; right: -2px; opacity: .3; }
+  .page-intro .eyebrow { padding-right: 40px; font-size: 9px; letter-spacing: 1.5px; }
+  .page-intro .sub { font-size: 12px; }
+  .filters { padding: 17px; gap: 15px 12px; }
+  .filters label { flex: 1 1 calc(50% - 12px); min-width: 0; }
+  .filters label:has(input[type=search]), .filters label:has(#geo) { flex-basis: 100%; }
+  .filters label:has(#days) { flex-basis: 100%; }
+  .stats { gap: 12px; }
+  .stat { padding: 17px 14px; }
+  .stat .label { font-size: 11px; padding-right: 0; }
+  .stat .stat-icon { display: none; }
+  .stat strong { font-size: 30px; margin: 14px 0 8px; }
+  .stat small { font-size: 10px; }
+  .card { padding: 21px 17px; }
+  .twocol, .formgrid { grid-template-columns: 1fr; }
+  .formgrid .wide { grid-column: auto; }
+  .chart { height: 175px; }
+  .chart text { font-size: 12px; }
+  table { min-width: 335px; }
+  td, th { padding: 12px 8px; }
+  .barrow { grid-template-columns: minmax(115px, 1fr) minmax(35px, .8fr) 30px; gap: 10px; }
+  .hero { padding: 24px 20px; align-items: flex-start; flex-direction: column; gap: 20px; }
+  .hero h2 { font-size: 26px; }
+  dialog { width: calc(100vw - 20px); padding: 19px; max-height: 92dvh; }
+  dialog > .row:first-child { top: -19px; }
+  dialog h1 { font-size: 30px; }
+  dialog table { min-width: 300px; }
+  .weekly-report { padding: 22px 17px; }
+  .weekly-report > h1 { font-size: 29px; }
+  footer { padding: 0 16px 24px; flex-direction: column; gap: 7px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+@page {
+  size: A4; margin: 16mm;
+  @bottom-left { content: "SteepSignal · Demo data — not live research"; font: 8pt system-ui, sans-serif; color: #6d4818; }
+}
+@media print {
+  body { background: white; color: #26332d; font-size: 10pt; }
+  aside, header, .skip-link, .filters, .filters + .legend, .page-intro, .week-control, footer, #toast, dialog, .actions, button { display: none !important; }
+  .shell { margin: 0; }
+  main { padding: 0; max-width: none; }
+  .weekly-report { border: 0; border-top: 3px solid #183f35; border-radius: 0; padding: 18px 0 0; margin: 0; box-shadow: none; }
+  .weekly-report > h1 { font-size: 26pt; }
+  .weekly-report > h2 { font-size: 16pt; margin-top: 18px; padding-top: 12px; break-after: avoid; }
+  .demo { display: inline-flex !important; font-size: 9pt; border: 1px solid #77501c; color: #5b3c12; background: #f4e8d0; }
+  .tablewrap { overflow: visible; }
+  table { min-width: 0; font-size: 10pt; }
+  th, td { padding: 9px 8px; }
+  td:first-child button[data-trend] { display: inline !important; border: 0; padding: 0; min-height: 0; font: 600 10pt var(--body); color: #183f35; }
+  th:last-child, td:last-child { display: none; }
+  .barrow { margin: 14px 0; font-size: 10pt; break-inside: avoid; }
+  .card, .weekly-report { break-inside: auto; }
+  tr, .evidence { break-inside: avoid; }
+  .bar i { background: #6e8a60; print-color-adjust: exact; }
+  .demo, th { print-color-adjust: exact; }
+  .botanical { display: none; }
+}
+.sidebar-leaf { width: 52px; height: 60px; bottom: 0; }
+.sidebar-leaf svg { width: 100%; height: 100%; }
+button .icon { width: 16px; height: 16px; }
+.weekly-report > h1::before { content: ''; display: inline-block; width: 37px; height: 37px; margin-right: 12px; vertical-align: -5px; background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiNEQ0U3RDgiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxODNGMzUiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAyNGgyNHY3YzAgNi01IDEwLTEyIDEwcy0xMi00LTEyLTEwWm0yNCAyaDNhNSA1IDAgMCAxIDAgMTBoLTVNMTYgNDRoMTVNMjMgMjFjLTctNy00LTE0IDktMTcgMyAxMC0yIDE2LTkgMTdaTTIyIDIybDctMTIiLz48L2c+PC9zdmc+Cg==') center / contain no-repeat; }
+@media print { td small, .legend { font-size: 9pt; } .weekly-report > h1::before { width: 30px; height: 30px; } }
+.print-footer { display: none; }
+td:first-child button { min-height: 44px; }
+@media print {
+  .print-footer { display: none; }
+}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to research</a>
+  <aside>
+    <div class="brand-row">
+      <a class="logo" href="#dashboard"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiNEQ0U3RDgiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiMxODNGMzUiIHN0cm9rZS13aWR0aD0iMi4xIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Ik0xMCAyNGgyNHY3YzAgNi01IDEwLTEyIDEwcy0xMi00LTEyLTEwWm0yNCAyaDNhNSA1IDAgMCAxIDAgMTBoLTVNMTYgNDRoMTVNMjMgMjFjLTctNy00LTE0IDktMTcgMyAxMC0yIDE2LTkgMTdaTTIyIDIybDctMTIiLz48L2c+PC9zdmc+Cg==" alt="" width="38" height="38"><span class="brand-name">SteepSignal</span><span class="tagline">Tea trends. Clear insights.</span></a>
+      <button id="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Open navigation">☰ <span>Menu</span></button>
+    </div>
+    <div class="navlabel">YOUR RESEARCH SPACE</div>
+    <nav id="nav" aria-label="Main navigation"></nav>
+    <div class="sidefoot"><span class="scope-dot"></span> United States focus<br><small>Thoughtful research.<br>Better tea.</small><div class="sidebar-leaf" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8"><path d="M5 19C3 10 8 4 20 4c0 12-6 17-15 15ZM4 21 16 9"/></svg></div></div>
+  </aside>
+  <div class="shell">
+    <header><span class="workspace-name">RESEARCH WORKSPACE <b>/ United States</b></span><span class="demo"><span aria-hidden="true">◉</span> Demo data — not live research</span></header>
+    <main id="main" tabindex="-1"></main>
+    <footer><span>SteepSignal · Findings describe collected records, not the entire US market. Your watchlist, experiments, and imported observations stay in this browser; they are not shared with other visitors.</span><span>Demo data — not live research</span></footer>
+  </div>
+  <dialog id="dialog" aria-label="Research details"></dialog>
+  <div id="toast" role="status"></div>
+  <script>const anchor='2026-10-09';
+const topics=[{name:'Iced matcha',category:'Matcha',temp:'Iced',summary:'Fictional observations explore smoother matcha and adjustable sweetness.',test:'Offer an unsweetened iced matcha with optional syrup.',measure:'Record choice of sweetness, repeat purchases, and texture feedback.'},{name:'Less-sweet chai',category:'Chai',temp:'Hot',summary:'Sample records describe interest in spice-forward chai with less sugar.',test:'Compare two clearly labeled sweetness levels in a small café trial.',measure:'Track selections and voluntary taste feedback.'},{name:'Fruit-forward iced tea',category:'Black tea',temp:'Iced',summary:'Fictional discussions favor peach and berry flavors without a syrupy finish.',test:'Test a peach iced tea with syrup served separately.',measure:'Track flavor preference, syrup use, and willingness to reorder.'},{name:'Caffeine-free rituals',category:'Herbal',temp:'Hot',summary:'Sample at-home observations request more caffeine-free evening options.',test:'Offer a small caffeine-free herbal sampler.',measure:'Track sampler selections and flavor feedback.'},{name:'Bubble tea at home',category:'Bubble tea',temp:'Iced',summary:'Fictional records discuss convenient kits and texture challenges.',test:'Trial a small kit with clearly timed pearl preparation instructions.',measure:'Ask about ease of preparation, pearl texture, and waste.'},{name:'Cold-brew green tea',category:'Green tea',temp:'Iced',summary:'Sample observations explore convenient cold brewing and bitterness.',test:'Trial a cold-brew sachet with brewing guidance.',measure:'Track preparation success and taste feedback.'}];
+const requests=['Less sugar','Flavor options','Less sugar','Caffeine-free choices','Convenient preparation','Convenient preparation'];
+const complaints=['Chalky texture','Too sweet','Syrupy finish','Limited variety','Pearls become hard','Bitter finish'];
+const demoRecords=[];
+for(let day=0;day<180;day++)for(let t=0;t<topics.length;t++){
+ const n=day<30?[4,3,3,2,2,1][t]:day<60?[2,2,2,2,1,1][t]:[1,1,2,1,1,1][t];
+ for(let j=0;j<n;j++){const d=new Date(anchor+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-day);const kind=['positive','request','negative'][(day+j+t)%3];const setting=['At home','Away from home','Unknown / mixed'][(day+j+t)%3];demoRecords.push({id:`demo-${day}-${t}-${j}`,published:d.toISOString().slice(0,10),topic:topics[t].name,category:topics[t].category,temp:topics[t].temp,setting,source:['Sample forum','Sample review','Sample observation'][(day+j)%3],geo:'confirmed_us',geoBasis:'Fictional US setting assigned for demonstration',kind,request:kind==='request'?requests[t]:'',complaint:kind==='negative'?complaints[t]:'',text:kind==='request'?`Fictional sample: a customer requests ${requests[t].toLowerCase()} for ${topics[t].name.toLowerCase()}.`:kind==='negative'?`Fictional sample: ${complaints[t].toLowerCase()} is a concern with ${topics[t].name.toLowerCase()}.`:`Fictional sample: a customer enjoys the flavor of ${topics[t].name.toLowerCase()} from fictional brand ${['Willow Cup','Moss & Kettle','Juniper Leaf'][j%3]}.`,url:'',demo:true});}}
+function period(end,days){const d=new Date(end+'T12:00:00Z');d.setUTCDate(d.getUTCDate()-days+1);return {start:d.toISOString().slice(0,10),end};}
+function previous(range){const days=Math.round((new Date(range.end)-new Date(range.start))/86400000)+1;const end=new Date(range.start+'T12:00:00Z');end.setUTCDate(end.getUTCDate()-1);return period(end.toISOString().slice(0,10),days);}
+function growth(current,before){return before===0?(current?'New in collected data':'No records'):`${current>=before?'+':''}${Math.round((current-before)/before*100)}%`;}
+function filterRecords(records,filters,range){return records.filter(r=>r.published>=range.start&&r.published<=range.end&&(filters.geo==='all'||r.geo!=='unknown')&&(!filters.q||[r.topic,r.text,r.request,r.complaint].join(' ').toLowerCase().includes(filters.q.toLowerCase()))&&['category','temp','setting','source'].every(k=>!filters[k]||r[k]===filters[k]));}
+const fields=['id','published','topic','category','temp','setting','source','geo','geoBasis','kind','request','complaint','text','url'];
+function csv(rows,columns){return [columns,...rows.map(r=>columns.map(c=>r[c]??''))].map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');}
+function parseCSV(text){const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else if(!quoted&&cell!=='')throw Error('Unexpected quote in CSV');else quoted=!quoted;}else if(c===','&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(Boolean))rows.push(row);row=[];cell='';}else cell+=c;}if(quoted)throw Error('Unclosed quoted field');row.push(cell);if(row.some(Boolean))rows.push(row);return rows;}
+function validateImport(text,existing){const rows=parseCSV(text);if(rows.length<2)throw Error('Include a header and at least one observation.');const headers=rows.shift().map(x=>x.replace(/^\uFEFF/,''));if(new Set(headers).size!==headers.length)throw Error('Duplicate column headers.');for(const f of fields)if(!headers.includes(f))throw Error(`Missing column: ${f}`);const accepted=[],errors=[];let duplicates=0;const ids=new Set(existing.map(r=>r.id)), fingerprints=new Set(existing.map(fingerprint)),urls=new Set(existing.filter(r=>r.url).map(r=>r.url));rows.forEach((values,i)=>{try{if(values.length!==headers.length)throw Error('Column count differs from header');const r=Object.fromEntries(headers.map((h,j)=>[h,values[j].trim()]));for(const k of ['id','published','topic','category','temp','setting','source','geo','geoBasis','kind','text'])if(!r[k])throw Error(`${k} is required`);if(!/^\d{4}-\d{2}-\d{2}$/.test(r.published)||!Number.isFinite(Date.parse(r.published))||new Date(r.published).toISOString().slice(0,10)!==r.published)throw Error('Invalid publication date');for(const [key,allowed] of Object.entries({temp:['Hot','Iced','Mixed'],setting:['At home','Away from home','Unknown / mixed'],geo:['confirmed_us','inferred_us','unknown'],kind:['positive','negative','request','observation']}))if(!allowed.includes(r[key]))throw Error(`Invalid ${key}: use ${allowed.join(', ')}`);if(r.kind==='request'&&!r.request)throw Error('Request records require request text');if(r.kind==='negative'&&!r.complaint)throw Error('Negative records require complaint text');if(r.url){const u=new URL(r.url);if(!['http:','https:'].includes(u.protocol))throw Error('Source URL must be HTTP(S)');}if(ids.has(r.id)||fingerprints.has(fingerprint(r))||(r.url&&urls.has(r.url))){duplicates++;return;}r.demo=false;accepted.push(r);ids.add(r.id);fingerprints.add(fingerprint(r));if(r.url)urls.add(r.url);}catch(e){errors.push(`Row ${i+2}: ${e.message}`);}});return {accepted,errors,duplicates};}
+function fingerprint(r){return [r.published,r.text.toLowerCase().replace(/\s+/g,' ').trim()].join('|');}
+
+// Presentation-only SVGs; research data and browser storage are unchanged.
+const paths = {
+  download: '<path d="M12 3v12M7 10l5 5 5-5M4 16v5h16v-5"/>',
+  arrow: '<path d="M5 12h14M14 7l5 5-5 5"/>',
+  leaf: '<path d="M5 19C3 10 8 4 20 4c0 12-6 17-15 15Z"/><path d="M4 21 16 9M9 16V11M9 16h5"/>',
+  cup: '<path d="M4 10h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Zm12 1h2a3 3 0 0 1 0 6h-2M7 3c-2 2 2 2 0 4M12 2c-2 2 2 2 0 4"/>',
+  iced: '<path d="m5 6 2 15h10l2-15ZM15 6l2-4h4M9 10h3v3H9ZM13 15h3v3h-3"/>',
+  home: '<path d="m3 11 9-8 9 8M5 9v12h14V9M9 21v-7h6v7"/>',
+  cafe: '<path d="M3 8h18l-2-5H5ZM4 8v13h16V8M8 21v-7h4v7M15 12h2M3 8c0 4 4 4 4 0 0 4 5 4 5 0 0 4 5 4 5 0 0 4 4 4 4 0"/>',
+  dashboard: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="11" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="18" width="7" height="3" rx="1"/>',
+  wishlist: '<path d="M20 5c-3-3-6-1-8 1-2-2-5-4-8-1-4 4 1 9 8 15 7-6 12-11 8-15Z"/>',
+  opportunities: '<path d="m12 3 2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6Z"/>',
+  watchlist: '<path d="M6 3h12v18l-6-4-6 4Z"/>',
+  notebook: '<rect x="5" y="3" width="15" height="18" rx="2"/><path d="M3 7h4M3 12h4M3 17h4M10 8h6M10 12h6M10 16h4"/>',
+  brief: '<path d="M5 3h10l4 4v14H5ZM14 3v5h5M9 12h6M9 16h6"/>',
+  sources: '<circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="19" r="3"/><path d="m7 9 4 7M17 9l-4 7M9 6h6"/>',
+  search: '<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>',
+  menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+  posts: '<path d="M4 4h16v12H9l-5 4ZM8 8h8M8 12h5"/>',
+  change: '<path d="M3 20h18M5 16l5-6 4 3 6-9M15 4h5v5"/>',
+  mixed: '<path d="M3 6h6l6 12h6M17 14l4 4-4 4M3 18h6l6-12h6M17 2l4 4-4 4"/>'
+};
+function icon(name, cls='') {
+  return `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.leaf}</svg>`;
+}
+const botanical = `<svg class="botanical" viewBox="0 0 190 170" fill="none" aria-hidden="true"><path d="M34 155C67 110 88 74 153 19" stroke="currentColor" stroke-width="2"/><path d="M66 111C24 113 24 73 33 61c34 8 41 27 33 50ZM88 83c-31-10-33-43-20-56 25 12 30 29 20 56ZM115 56c-4-34 17-43 41-43 4 26-12 42-41 43ZM75 100c18-30 51-27 66-10-18 24-42 28-66 10ZM48 135c18-30 47-29 65-16-13 24-39 30-65 16Z" fill="currentColor" fill-opacity=".09" stroke="currentColor" stroke-width="1.5"/></svg>`;
+function changeText(current, before, formatted) {
+  return `${before && current!==before ? (current>before?'↑ ':'↓ ') : ''}${formatted}`;
+}
+
+const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function read(k,f){try{return JSON.parse(localStorage.getItem(k))??f;}catch{return f;}}
+let watch=read('ss-shared-demo-v1-watch',[]),notebook=read('ss-shared-demo-v1-notebook',[]),imported=read('ss-shared-demo-v1-imported',[]);let filters={q:'',category:'',temp:'',setting:'',source:'',geo:'us',dataset:'demo',days:'30',start:period(anchor,30).start,end:anchor};let week='2026-10-05';
+const pages=[['dashboard','◫','Overview'],['wishlist','♡','Customer wish list'],['opportunities','✧','Opportunities'],['watchlist','☆','Watchlist'],['notebook','▤','Test notebook'],['brief','▧','Weekly brief'],['sources','⊙','Sources & coverage']];
+function persist(){try{localStorage.setItem('ss-shared-demo-v1-watch',JSON.stringify(watch));localStorage.setItem('ss-shared-demo-v1-notebook',JSON.stringify(notebook));localStorage.setItem('ss-shared-demo-v1-imported',JSON.stringify(imported));return true;}catch{toast('Storage is unavailable or full. Export a backup before leaving.');return false;}}
+function toast(s){$('#toast').textContent=s;$('#toast').style.display='block';setTimeout(()=>$('#toast').style.display='none',4000);}
+function records(){return filters.dataset==='demo'?demoRecords:imported;}
+function range(){return {start:filters.start,end:filters.end};}
+function briefRange(){const end=new Date(week+'T12:00:00Z');end.setUTCDate(end.getUTCDate()+6);return {start:week,end:end.toISOString().slice(0,10)};}
+function selected(r=range()){return filterRecords(records(),filters,r);}
+function ranked(rows=selected(),prev=selected(previous(range()))){return [...new Set([...rows,...prev].map(r=>r.topic))].map(name=>({name,n:rows.filter(r=>r.topic===name).length,before:prev.filter(r=>r.topic===name).length,topic:topics.find(t=>t.name===name)})).filter(t=>t.n).sort((a,b)=>b.n-a.n||a.name.localeCompare(b.name));}
+function head(title,sub,action=''){return `<div class="row page-intro">${title==='What’s brewing.'?botanical:''}<div><div class="eyebrow">${icon('leaf')} THE TEA INTELLIGENCE EDIT</div><h1>${title}</h1><p class="sub">${sub}</p></div><div class="actions">${action}</div></div>`;}
+function options(values,current){return values.map(v=>`<option ${v===current?'selected':''} value="${esc(v)}">${esc(v||'All')}</option>`).join('');}
+function filterUI(){return `<div class="filters"><label><span class="label-text">${icon('search')} Search</span><input id="q" type="search" placeholder="Search topics, ingredients…" value="${esc(filters.q)}"></label><label>Date range<select id="days">${['7','30','90','custom'].map(v=>`<option value="${v}" ${v===filters.days?'selected':''}>${v==='custom'?'Custom':v+' days'}</option>`).join('')}</select></label>${filters.days==='custom'?`<label>From<input id="start" type="date" value="${filters.start}"></label><label>Through<input id="end" type="date" value="${filters.end}"></label>`:''}${['category','temp','setting','source'].map(k=>`<label><span class="label-text">${k==='temp'?icon('cup')+icon('iced'):k==='setting'?icon('home'):''}${({category:'Tea category',temp:'Hot / iced',setting:'Consumption setting',source:'Source'})[k]}</span><select id="${k}">${options(['',...new Set(records().map(r=>r[k]))],filters[k])}</select></label>`).join('')}<label>Dataset<select id="dataset"><option value="demo" ${filters.dataset==='demo'?'selected':''}>Fictional demo</option><option value="imported" ${filters.dataset==='imported'?'selected':''}>Your observations</option></select></label><label>Geography<select id="geo"><option value="us" ${filters.geo==='us'?'selected':''}>Confirmed + inferred US</option><option value="all" ${filters.geo==='all'?'selected':''}>All, including unknown</option></select></label></div><p class="legend">${filters.start} – ${filters.end} · ${filters.dataset==='demo'?'Demo clock: October 9, 2026. All records are fictional.':'User-entered observations; provenance has not been independently verified.'} Unknown geography excluded from US totals by default.</p>`;}
+function chart(rows,r=range()){const days=Math.round((new Date(r.end)-new Date(r.start))/86400000)+1;const bins=Array.from({length:7},(_,i)=>{const start=new Date(r.start+'T12:00:00Z');start.setUTCDate(start.getUTCDate()+Math.floor(i*days/7));const end=new Date(r.start+'T12:00:00Z');end.setUTCDate(end.getUTCDate()+Math.floor((i+1)*days/7)-1);const a=start.toISOString().slice(0,10),b=end.toISOString().slice(0,10);return {a,b,n:rows.filter(x=>x.published>=a&&x.published<=b).length};});const max=Math.max(1,...bins.map(b=>b.n));const points=bins.map((b,i)=>`${45+i*75},${165-b.n/max*130}`).join(' ');return `<svg class="chart" viewBox="0 0 540 205" role="img" aria-label="Unique records by time bucket: ${bins.map(b=>`${b.a} through ${b.b}: ${b.n}`).join('; ')}">${[0,1,2,3].map(i=>`<line x1="40" y1="${165-i*43}" x2="510" y2="${165-i*43}"/><text x="5" y="${169-i*43}">${Math.round(max*i/3)}</text>`).join('')}<polygon points="45,165 ${points} 495,165"/><polyline points="${points}"/>${bins.map((b,i)=>`<circle cx="${45+i*75}" cy="${165-b.n/max*130}" r="4" fill="#557744"><title>${b.a} – ${b.b}: ${b.n} records</title></circle><text x="${28+i*75}" y="193">${b.a.slice(5)}</text>`).join('')}</svg><small class="legend chart-legend">Unique collected posts per time bucket; total ${rows.length}. No views or likes combined.</small>`;}
+function bars(rows,key){const groups=[...new Set(rows.map(r=>r[key]))].map(k=>[k,rows.filter(r=>r[key]===k).length]).sort((a,b)=>b[1]-a[1]);return groups.map(([k,n])=>`<div class="barrow"><span>${key==='setting'?icon(k==='At home'?'home':k==='Away from home'?'cafe':'mixed'):''}${esc(k)}</span><div class="bar"><i style="width:${rows.length?n/rows.length*100:0}%"></i></div><b>${n}</b></div>`).join('')||'<p class="empty">No matching records.</p>';}
+function table(rows){return `<div class="tablewrap" tabindex="0" role="region" aria-label="Tea topics table"><table><thead><tr><th>Topic</th><th>Records</th><th>Change</th><th>Save</th></tr></thead><tbody>${rows.map(t=>`<tr><td><button data-trend="${esc(t.name)}">${esc(t.name)}</button><small>${esc(t.topic?.category||'User observation')}${t.n<20?' · Small sample':''}</small></td><td>${t.n}</td><td class="growth">${changeText(t.n,t.before,growth(t.n,t.before))}</td><td><button data-save="${esc(t.name)}" aria-label="${watch.includes(t.name)?'Remove':'Save'} ${esc(t.name)}">${watch.includes(t.name)?'★':'☆'}</button></td></tr>`).join('')||'<tr><td colspan="4">No findings match these filters.</td></tr>'}</tbody></table></div>`;}
+function limitation(r=range()){const p=previous(r);return `<div class="note">Growth = (current unique posts − previous unique posts) ÷ previous unique posts × 100. Comparison: ${p.start} – ${p.end}. Zero baseline: “New in collected data.” Samples below 20 are flagged. These records do not establish market-wide demand. ${filters.dataset==='demo'?`Last demo update: ${anchor}`:'User observations: dates and geography are not independently verified'}; no live collection occurred.</div>`;}
+function overview(){const rows=selected(),ranks=ranked(),prev=selected(previous(range()));return head('What’s brewing.','Explore tea conversations, discover customer needs, and find your next small test.',`<button data-action="export">${icon('download')} Export records</button><button class="primary" data-page="brief">Weekly brief ${icon('arrow')}</button>`)+filterUI()+`<div class="stats">${[['Collected posts',rows.length,`${new Set(rows.map(r=>r.source)).size} sources represented`],['Topics in view',ranks.length,'Within selected records'],['Explicit requests',rows.filter(r=>r.kind==='request').length,'Customer-stated needs'],['Change in posts',growth(rows.length,prev.length),'Previous equivalent period']].map(([l,n,s])=>`<div class="card stat">${icon(({'Collected posts':'posts','Topics in view':'leaf','Explicit requests':'wishlist','Change in posts':'change'})[l],'stat-icon')}<span class="label">${l}</span><strong>${n}</strong><small>${s}</small></div>`).join('')}</div><div class="grid"><div class="card"><div class="row"><h2>Conversation over time</h2><span class="tag">Unique posts</span></div><p class="legend">A little perspective on the collected conversation.</p>${chart(rows)}</div><div class="card"><h2>Where tea happens</h2><p class="legend">Consumption setting · same filtered records</p>${bars(rows,'setting')}<div class="note">Unknown / mixed describes consumption setting, not geography.</div></div></div><div class="grid"><div class="card"><div class="row"><h2>Leading tea topics</h2><span class="legend">Select a topic to inspect evidence</span></div>${table(ranks)}</div><div class="card"><h2>Emerging in collected data</h2><p class="legend">Ranked by increase in unique posts</p>${ranks.filter(t=>t.n>t.before).sort((a,b)=>(b.n-b.before)-(a.n-a.before)).slice(0,3).map(t=>`<div class="evidence"><div class="row"><button data-trend="${esc(t.name)}">${esc(t.name)}</button><span class="growth">${changeText(t.n,t.before,growth(t.n,t.before))}</span></div><small>${t.n} current / ${t.before} previous records</small></div>`).join('')||'<p>No growing topics in this selection.</p>'}<h3>Recurring complaints</h3>${bars(rows.filter(r=>r.kind==='negative'),'complaint')}</div></div><div class="hero"><div><div class="eyebrow">FROM INSIGHT TO EXPERIMENT</div><h2>Good ideas start with a small test.</h2><p>Turn a supported signal into a practical experiment. Track what you learn in your own product notebook.</p></div><button class="primary" data-page="opportunities">Explore opportunities →</button></div>`+limitation();}
+function evidence(rows){return rows.map(r=>`<article class="evidence"><span class="tag">${r.demo?'Fictional sample content':'User observation · unverified'}</span><p>${esc(r.text)}</p><small>${esc(r.published)} · ${esc(r.source)} · ${esc(r.setting)} · ${esc(r.geo)}<br>Geography basis: ${esc(r.geoBasis)} · Record ${esc(r.id)}</small>${r.url?`<p><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">User-provided source ↗</a></p>`:''}</article>`).join('')||'<p class="empty">Insufficient evidence in this selection.</p>';}
+function modal(content){$('#dialog').innerHTML=`<div class="row"><span class="demo">Demo data — not live research</span><button data-close aria-label="Close dialog">✕</button></div>${content}`;$('#dialog').showModal();bind($('#dialog'));}
+function detail(name){const r=location.hash==='#brief'?briefRange():range();const rows=selected(r).filter(r=>r.topic===name),before=selected(previous(r)).filter(r=>r.topic===name).length,t=topics.find(x=>x.name===name);modal(`<h1>${esc(name)}</h1><p class="sub">${esc(t?.summary||'User-entered research observations. No AI summary or independent verification has been performed.')}</p><p>${r.start} – ${r.end} · <b>${rows.length} relevant posts</b> · ${new Set(rows.map(r=>r.source)).size} sources · ${growth(rows.length,before)} (${before} previous)</p>${rows.length<20?'<span class="tag">Small sample — fewer than 20 posts</span>':''}${chart(rows,r)}<h3>Positive feedback</h3>${evidence(rows.filter(r=>r.kind==='positive').slice(0,3))}<h3>Negative feedback</h3>${bars(rows.filter(r=>r.kind==='negative'),'complaint')}<h3>Explicit requests</h3>${bars(rows.filter(r=>r.kind==='request'),'request')}<h3>Supporting evidence · all ${rows.length} records</h3>${evidence(rows)}${limitation(r)}`);}
+function wishlist(){const rows=selected().filter(r=>r.kind==='request');return head('What customers wish for.','Explicit requests, grouped from the selected records. Inferred ideas live in Opportunities.')+filterUI()+`<div class="twocol">${[...new Set(rows.map(r=>r.request))].map(req=>{const supporting=rows.filter(r=>r.request===req);return `<div class="card"><span class="tag">Explicit customer request</span><h2 style="margin-top:14px">${esc(req)}</h2><p class="sub">${supporting.length} supporting records · ${new Set(supporting.map(r=>r.topic)).size} topics</p><button data-request="${esc(req)}">Inspect supporting records →</button><button data-save="${esc(req)}">${watch.includes(req)?'★ Saved':'☆ Save request'}</button></div>`;}).join('')||'<div class="empty">No explicit requests match this selection.</div>'}</div>`+limitation();}
+function opportunities(){return head('Small tests. Useful learning.','Ideas to investigate — not proven demand or guaranteed sales.')+filterUI()+`<div class="twocol">${ranked().map(r=>{const t=r.topic;return `<div class="card opportunity-card"><span class="tag">Inferred opportunity · ${r.n} supporting records</span><h2 style="margin-top:15px">${esc(r.name)}</h2><p class="sub">${esc(t?.summary||'Review the collected observations before developing a hypothesis.')}</p><h3>A small test</h3><p>${esc(t?.test||'Run a limited trial tied to an explicit observation.')}</p><h3>What to measure</h3><p>${esc(t?.measure||'Record voluntary customer feedback and actual sales, if available.')}</p><h3>Uncertainties</h3><p class="sub">Sample selection, pricing, local preferences, and purchase intent remain untested. Mentions do not predict sales.</p><div class="actions"><button data-trend="${esc(r.name)}">Review evidence</button><button class="primary" data-experiment="${esc(r.name)}">Plan a test</button></div></div>`;}).join('')||'<div class="empty">Insufficient evidence to suggest experiments.</div>'}</div>`;}
+function watchlist(){return head('Keep a little signal close.','Saved topics, requests, ingredients, and brands. Stored in this browser only.',`<button data-action="backup">${icon('download')} Backup browser data</button>`)+`<form id="watch-form" class="filters"><label>Topic, ingredient, or brand<input name="item" required maxlength="120" placeholder="e.g. Peach or Willow Cup"></label><button class="primary">Add to watchlist</button></form>`+filterUI()+watch.map(name=>{const rows=selected().filter(r=>[r.topic,r.text,r.request].join(' ').toLowerCase().includes(name.toLowerCase()));return `<div class="card listcard"><div class="row"><h2>${esc(name)}</h2><button data-save="${esc(name)}">Remove</button></div><p>${rows.length} matching records in the selected period</p><button data-watch-evidence="${esc(name)}">Inspect findings</button></div>`;}).join('')+(watch.length?'':'<div class="card empty">Your watchlist is empty. Save a topic or add a term above.</div>');}
+function notebookPage(){return head('Your next cup, on the record.','Business-entered experiments are separate from social research. Stored in this browser only.',`<button data-action="backup">${icon('download')} Backup browser data</button><button class="primary" data-experiment="">＋ New experiment</button>`)+`<div class="note">No sales results are generated. Enter only results you measured. Browser storage is not secure multi-user business storage.</div>`+notebook.map(n=>`<div class="card listcard experiment-card"><div class="row"><div><span class="tag">Business-entered experiment</span><h2 style="margin-top:10px">${esc(n.name)}</h2></div><div class="actions"><button data-edit="${esc(n.id)}">Edit</button><button class="danger" data-delete="${esc(n.id)}">Delete</button></div></div><p>${esc(n.hypothesis)}</p><p class="legend">Related trend: ${esc(n.trend||'None')} · ${esc(n.start||'No start date')} – ${esc(n.end||'No end date')}</p><p>Price: ${n.price!==''?'$'+esc(n.price):'Not entered'} · Units sold: ${n.units!==''?esc(n.units):'Not entered'}</p><h3>Feedback</h3><p>${esc(n.feedback||'Not entered')}</p><h3>Outcome & next step</h3><p>${esc(n.outcome||'Not entered')} · ${esc(n.next||'Not entered')}</p></div>`).join('')+(notebook.length?'':'<div class="card empty">No experiments yet. Start with a hypothesis and a small test.</div>');}
+function experiment(trend='',id){const n=id?notebook.find(n=>n.id===id):{name:'',trend,hypothesis:'',start:'',end:'',price:'',units:'',feedback:'',outcome:'',next:''};modal(`<h1>${id?'Edit':'Plan'} an experiment</h1><form id="experiment-form" data-id="${esc(id||'')}" class="formgrid">${[['name','Product or drink name','text'],['trend','Related trend','text'],['hypothesis','Hypothesis','textarea'],['start','Test starts','date'],['end','Test ends','date'],['price','Price (USD)','number'],['units','Units sold','number'],['feedback','Customer feedback','textarea'],['outcome','Outcome','textarea'],['next','Next step','textarea']].map(([k,l,type])=>`<label class="${type==='textarea'?'wide':''}">${l}${type==='textarea'?`<textarea name="${k}" maxlength="5000">${esc(n[k])}</textarea>`:`<input name="${k}" type="${type}" value="${esc(n[k])}" ${k==='name'?'required maxlength="200"':''} ${type==='number'?`min="0" step="${k==='units'?'1':'0.01'}"`:''}>`}</label>`).join('')}<button class="primary">Save experiment</button></form>`);}
+function brief(){const start=new Date(week+'T12:00:00Z');const end=new Date(start);end.setUTCDate(end.getUTCDate()+6);const r={start:week,end:end.toISOString().slice(0,10)},rows=selected(r),ranks=ranked(rows,selected(previous(r)));return head('The weekly steep.','A focused research brief for your next product conversation.',`<button data-action="print">Print / save as PDF</button><button data-action="brief-csv">${icon('download')} Export brief CSV</button>`)+`<label class="week-control">Week beginning (7-day report)<input id="week" type="date" value="${week}"></label>`+filterUI()+`<section class="card weekly-report"><span class="demo">Demo data — not live research</span><h1>SteepSignal · Weekly research brief</h1><p>Tea trends. Clear insights.</p><p>${r.start} – ${r.end} · ${rows.length} unique records · ${new Set(rows.map(r=>r.source)).size} sources · Dataset: ${filters.dataset==='demo'?'fictional demo':'user observations'}</p><h2>Leading topics</h2>${table(ranks)}<h2 style="margin-top:24px">Emerging topics</h2><p>${ranks.filter(t=>t.n>t.before).map(t=>`${esc(t.name)} (${growth(t.n,t.before)}, ${t.n} / ${t.before} records)`).join('; ')||'No emerging topics in this selection.'}</p><h2>Explicit requests</h2>${bars(rows.filter(r=>r.kind==='request'),'request')}<h2>Recurring complaints</h2>${bars(rows.filter(r=>r.kind==='negative'),'complaint')}<h2>Ideas worth testing</h2>${ranks.slice(0,3).map(t=>`<p><b>${esc(t.name)}:</b> ${esc(t.topic?.test||'Review evidence and design a limited trial.')} ${esc(t.topic?.measure||'Measure voluntary feedback.')} Idea to investigate, not proven demand.</p>`).join('')||'<p>Insufficient evidence.</p>'}<h2>Sources and limitations</h2><p>${[...new Set(rows.map(r=>r.source))].map(esc).join(', ')||'No sources in selection'}.</p><p>Comparison: ${previous(r).start} – ${previous(r).end}. Growth = (current − previous) / previous × 100; zero baseline is “New in collected data.” Topics with fewer than 20 records have small samples.</p><p>Fictional demo findings are not market research. User observations have unverified provenance. Unknown geography is excluded by default. Inferred US location is uncertain; records are not representative of all US customers. No automatic emailing or live refresh.</p></section>`;}
+function sources(){return head('Know where the signal comes from.','Transparent coverage, honest status, and a path to authorized research.',`<button data-action="backup">${icon('download')} Backup browser data</button>`)+`<div class="grid"><div class="card"><h2>Source connections</h2>${['Fictional sample dataset','Manual observations / CSV','Approved live providers'].map((s,i)=>`<div class="source row"><div><h3>${s}</h3><small>${i===0?`${demoRecords.length} fictional unique posts · ${anchor}`:i===1?`${imported.length} locally stored records; provenance unverified`:'No provider, credentials, or collection configured'}</small></div><span class="tag">${i===0?'Demo':i===1?'Local only':'Not connected'}</span></div>`).join('')}<div class="note">Checked: local demo and browser records on ${new Date().toISOString()}. No live API or network collection was checked. Future adapters can report Connected or Connection error only after a real request.</div><h3>Coverage gaps</h3><p class="sub">No live platform coverage. No representative sampling. Unknown geography is excluded from US totals; inferred US remains uncertain. Reposts with changed wording cannot reliably be identified by this importer.</p></div><div class="card"><h2>Bring your own observations</h2><p class="sub">Import only data you are authorized to use. No credentials required. The app never treats record text as instructions.</p><div class="actions"><button data-action="template">Download CSV template</button><button data-action="manual">＋ Add observation</button></div><form id="import-form"><label style="margin-top:20px">CSV file<input name="file" type="file" accept=".csv,text/csv" required></label><button class="primary" style="margin-top:14px">Validate & import</button></form><div id="import-result" role="status"></div><p class="legend">Deduplicates by ID, source URL, or exact normalized text + date. Invalid rows are skipped with row-level errors; valid rows are imported.</p><button data-action="imported-csv">Export your observations</button><label style="margin-top:18px">Restore SteepSignal JSON backup<input id="restore" type="file" accept="application/json,.json"></label></div></div><div class="card"><h2>Connecting real research next</h2><p class="sub">Start with an authorized CSV containing publication dates, geography basis, and genuine source URLs. For an API provider, first review current official documentation, permitted research use, access requirements, pricing, and rate limits. Provider adapters belong behind a server; keys never belong in this browser app. No restricted scraping or comprehensive platform coverage is promised.</p></div>`;}
+function download(name,text,type='text/csv'){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function exportRows(rows,name){download(name,csv(rows.map(r=>({...r,data_label:r.demo?'Demo data — not live research':'User observation — unverified provenance'})),['data_label',...fields]));}
+function manual(){modal(`<h1>Add a research observation</h1><p class="sub">Only enter observations you are authorized to use. Text is data, not instructions.</p><form id="manual-form" class="formgrid">${fields.map(k=>{const choices={temp:['Hot','Iced','Mixed'],setting:['At home','Away from home','Unknown / mixed'],geo:['unknown','confirmed_us','inferred_us'],kind:['observation','request','negative','positive']};return `<label class="${k==='text'?'wide':''}">${({id:'Record ID',published:'Publication date',topic:'Tea topic',category:'Tea category',temp:'Hot / iced',setting:'Consumption setting',source:'Source name',geo:'Geographic relevance',geoBasis:'Basis for geographic relevance',kind:'Observation type',request:'Customer request (if applicable)',complaint:'Complaint (if applicable)',text:'Authorized observation',url:'Genuine source URL (optional)'})[k]}${choices[k]?`<select name="${k}">${options(choices[k],choices[k][0])}</select>`:k==='text'?'<textarea name="text" required></textarea>':`<input name="${k}" ${k==='published'?'type="date"':k==='url'?'type="url"':''} value="${k==='id'?'manual-'+Date.now():''}" ${['id','published','topic','category','source','geoBasis'].includes(k)?'required':''}>`}</label>`;}).join('')}<button class="primary">Save observation</button><div id="manual-error" role="alert"></div></form>`);}
+const navIcon = name => icon(name);
+function render(){const page=location.hash.slice(1)||'dashboard';$('#nav').innerHTML=pages.map(([id,icon,name])=>`<a href="#${id}" class="${id===page?'active':''}" ${id===page?'aria-current="page"':''}>${navIcon(id)}${name}</a>`).join('');$('#main').innerHTML=({dashboard:overview,wishlist,opportunities,watchlist,notebook:notebookPage,brief,sources}[page]||overview)();bind($('#main'));}
+function bind(root){root.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>location.hash=b.dataset.page);root.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('#dialog').close());root.querySelectorAll('[data-trend]').forEach(b=>b.onclick=()=>detail(b.dataset.trend));root.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{const name=b.dataset.save;watch=watch.includes(name)?watch.filter(x=>x!==name):[...watch,name];persist();render();});root.querySelectorAll('[data-request]').forEach(b=>b.onclick=()=>modal(`<h1>${esc(b.dataset.request)}</h1>${evidence(selected().filter(r=>r.kind==='request'&&r.request===b.dataset.request))}`));root.querySelectorAll('[data-watch-evidence]').forEach(b=>b.onclick=()=>modal(`<h1>${esc(b.dataset.watchEvidence)}</h1>${evidence(selected().filter(r=>[r.topic,r.text,r.request].join(' ').toLowerCase().includes(b.dataset.watchEvidence.toLowerCase())))}`));root.querySelectorAll('[data-experiment]').forEach(b=>b.onclick=()=>experiment(b.dataset.experiment));root.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>experiment('',b.dataset.edit));root.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('Delete this experiment?')){notebook=notebook.filter(n=>n.id!==b.dataset.delete);persist();render();}});root.querySelectorAll('.filters input,.filters select').forEach(el=>{if(!el.id)return;el.onchange=()=>{if(['start','end'].includes(el.id)){const next={...filters,[el.id]:el.value};if(!el.value||next.start>next.end){toast('Choose valid dates with start on or before end.');el.value=filters[el.id];return;}}filters[el.id]=el.value;if(el.id==='days'&&el.value!=='custom'){const r=period(anchor,Number(el.value));filters.start=r.start;filters.end=r.end;}if(el.id==='dataset'){filters.category=filters.temp=filters.setting=filters.source='';}render();};});
+const wf=root.querySelector('#watch-form');if(wf)wf.onsubmit=e=>{e.preventDefault();const name=new FormData(wf).get('item').trim();if(!name)return;if(!watch.includes(name))watch.push(name);persist();render();};
+const ef=root.querySelector('#experiment-form');if(ef)ef.onsubmit=e=>{e.preventDefault();const n=Object.fromEntries(new FormData(ef));if(!n.name.trim()){toast('Enter a product name.');return;}if(n.start&&n.end&&n.start>n.end){toast('End date must follow start date.');return;}n.id=ef.dataset.id||crypto.randomUUID();notebook=notebook.filter(x=>x.id!==n.id);notebook.push(n);persist();$('#dialog').close();render();toast('Experiment saved in this browser.');};
+const wi=root.querySelector('#week');if(wi)wi.onchange=()=>{if(wi.value){week=wi.value;render();}};
+const im=root.querySelector('#import-form');if(im)im.onsubmit=async e=>{e.preventDefault();try{const result=validateImport(await new FormData(im).get('file').text(),[...demoRecords,...imported]);imported.push(...result.accepted);persist();$('#import-result').innerHTML=`<div class="note">${result.accepted.length} imported; ${result.duplicates} duplicates skipped; ${result.errors.length} invalid rows.<br>${result.errors.map(esc).join('<br>')}</div>`;}catch(err){$('#import-result').textContent=err.message;}};
+const mf=root.querySelector('#manual-form');if(mf)mf.onsubmit=e=>{e.preventDefault();try{const r=Object.fromEntries(new FormData(mf));const result=validateImport(csv([r],fields),[...demoRecords,...imported]);if(result.errors.length||!result.accepted.length)throw Error(result.errors.join('; ')||'Duplicate observation');imported.push(...result.accepted);persist();$('#dialog').close();render();toast('Observation saved. Select Your observations in filters.');}catch(err){$('#manual-error').textContent=err.message;}};
+const restore=root.querySelector('#restore');if(restore)restore.onchange=async()=>{try{const v=JSON.parse(await restore.files[0].text());if(v.version!==1||!Array.isArray(v.watch)||!v.watch.every(s=>typeof s==='string'&&s.length<=120)||!Array.isArray(v.notebook)||!v.notebook.every(n=>typeof n.id==='string'&&['name','trend','hypothesis','start','end','price','units','feedback','outcome','next'].every(k=>typeof n[k]==='string'))||!Array.isArray(v.imported))throw Error('Invalid SteepSignal backup structure');if(v.imported.length){const checked=validateImport(csv(v.imported,fields),[]);if(checked.errors.length||checked.duplicates)throw Error('Backup contains invalid or duplicate observations');v.imported=checked.accepted;}if(!confirm('Replace browser watchlist, notebook, and imported observations with this backup?'))return;watch=v.watch;notebook=v.notebook;imported=v.imported;persist();render();toast('Backup restored.');}catch(err){toast('Could not restore: '+err.message);}};
+root.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='export')exportRows(selected(),'SteepSignal-records.csv');if(a==='imported-csv')exportRows(imported,'SteepSignal-observations.csv');if(a==='print')window.print();if(a==='backup')download('SteepSignal-browser-backup.json',JSON.stringify({version:1,label:'Demo data — not live research; notebook is business-entered',watch,notebook,imported},null,2),'application/json');if(a==='template')download('SteepSignal-import-template.csv',csv([{id:'replace-with-unique-id',published:anchor,topic:'Your topic',category:'Herbal',temp:'Hot',setting:'At home',source:'Your authorized source',geo:'unknown',geoBasis:'Location not available',kind:'observation',request:'',complaint:'',text:'Replace with your authorized observation',url:''}],fields));if(a==='manual')manual();if(a==='brief-csv'){const end=new Date(week+'T12:00:00Z');end.setUTCDate(end.getUTCDate()+6);exportRows(selected({start:week,end:end.toISOString().slice(0,10)}),'SteepSignal-weekly-brief.csv');}});
+}
+const menuButton=$('#menu-toggle');
+function closeMenu(){document.querySelector('aside').classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');}
+menuButton.innerHTML=icon('menu')+'<span>Menu</span>';
+menuButton.onclick=()=>{const open=document.querySelector('aside').classList.toggle('menu-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation':'Open navigation');};
+$('#nav').addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('aside').classList.contains('menu-open')){closeMenu();menuButton.focus();}});
+window.addEventListener('hashchange',()=>{closeMenu();render();});render();
+</script>
+</body>
+</html>
