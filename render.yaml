@@ -1,0 +1,21 @@
+# Prepared only: do not deploy until the owner approves the new host.
+services:
+  - type: web
+    name: steepsignal-research
+    runtime: node
+    plan: free
+    autoDeploy: false
+    buildCommand: node scripts/build-compatibility.js
+    startCommand: node server/server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.0
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: RESEARCH_ACCESS_CODE
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://blameitonchris.github.io
+      - key: YOUTUBE_DAILY_SEARCH_LIMIT
+        value: "10"

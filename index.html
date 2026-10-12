@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#183F35">
+  <title>SteepSignal · Tea trends. Clear insights.</title>
+  <link rel="icon" type="image/svg+xml" href="mark.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside>
+    <div class="brand-row">
+      <a class="logo" href="#dashboard" aria-label="SteepSignal home" title="Back to What’s brewing"><img src="mark.svg" alt="" width="38" height="38"><span class="brand-name">SteepSignal</span><span class="tagline">Tea trends. Clear insights.</span></a>
+      <button id="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Open navigation">☰ <span>Menu</span></button>
+    </div>
+    <div class="navlabel">Your tea workspace</div>
+    <nav id="nav" aria-label="Main navigation"></nav>
+    <div class="sidefoot"><span class="scope-dot"></span> United States focus<br><small>Thoughtful research.<br>Better tea.</small><div class="sidebar-leaf" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8"><path d="M5 19C3 10 8 4 20 4c0 12-6 17-15 15ZM4 21 16 9"/></svg></div></div>
+  </aside>
+  <div class="shell">
+    <header><span class="workspace-name">Tea workspace <b>/ United States</b></span><span class="demo"><span aria-hidden="true">◉</span> Demo data — not live research</span></header>
+    <main id="main" tabindex="-1"></main>
+    <footer><span>SteepSignal · Findings describe collected records, not the entire US market.</span><span>Demo data — not live research</span></footer>
+  </div>
+  <dialog id="dialog" aria-label="Tea topic details"></dialog>
+  <div id="toast" role="status"></div>
+  <script src="research.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

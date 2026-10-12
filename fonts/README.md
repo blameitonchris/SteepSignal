@@ -1,0 +1,1 @@
+Unmodified Latin WOFF2 fonts from @fontsource/lora and @fontsource/nunito-sans 5.3.0, distributed under the included SIL Open Font Licenses. theme.css embeds these files for a self-contained preview and public demo. No font CDN or installation is required. The tablet version uses system fonts.

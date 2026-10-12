@@ -1,0 +1,25 @@
+{
+  "name": "steepsignal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 3000 --bind 0.0.0.0",
+    "test": "node --test tests/data.test.js",
+    "build:preview": "node scripts/build-preview.js",
+    "prepare:share": "node scripts/prepare-share.js",
+    "test:share": "node tests/share-browser.cjs",
+    "prepare:pages": "node scripts/prepare-github-pages.js",
+    "test:pages": "node tests/share-browser.cjs github",
+    "build:compatibility": "node scripts/build-compatibility.js",
+    "test:compatibility": "node tests/compatibility-browser.cjs",
+    "publish:compatibility": "python3 scripts/publish-compatibility.py",
+    "start:research": "node --env-file=.env server/server.js",
+    "test:research": "node --test tests/research.test.js",
+    "test:research-browser": "node tests/research-browser.cjs",
+    "prepare:research": "node scripts/prepare-research.js"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
