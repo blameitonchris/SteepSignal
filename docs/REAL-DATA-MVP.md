@@ -120,3 +120,7 @@ Checks passed: original data/math/imports, protected endpoint and provider mock 
 ## Publication and activation status — 13 October 2026
 
 Approved source was pushed to main and the updated static interfaces to gh-pages. Both HTTPS Pages URLs returned the new research-room assets. No backend service or paid account was created, no live credentials were configured, and no real YouTube search was run. Saved browser records retain their existing keys. Create/connect a Render account first, using Free without adding a payment method; then continue the activation steps with the owner. Do not enable live collection until the remaining provider-policy items are addressed.
+
+## Terms/privacy update — 13 October 2026
+
+Both interfaces now prominently expose the research terms/privacy notice, YouTube Terms of Service, and Google Privacy Policy. YouTube discovery requires an unchecked explicit agreement for each browser session. Withdrawal clears session video evidence without touching saved notebooks or imports. Server discovery and video-evidence brief requests require the current notice version, before making provider calls. This is an implemented consent workflow, not a claim of legal certification or completion of every provider-policy review. Render must manually deploy the new main commit before the server enforcement is active; leave YOUTUBE_API_KEY unset until activation steps are completed. Actual Google project quotas and remaining branding/research-use policy fit still require review before the first live search.

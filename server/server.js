@@ -35,6 +35,7 @@ export function createServer({key=process.env.YOUTUBE_API_KEY,accessCode=process
     for await(const chunk of req){bytes+=chunk.length;if(bytes>768000){reply(413,{error:'This request is too large. Use a smaller CSV or backup.',code:'too_large'});req.resume();return;}chunks.push(chunk);}
     const data=JSON.parse(Buffer.concat(chunks).toString('utf8'));
     if(path==='/api/discover'){
+     if(data.policyVersion!=='2026-10-13')return reply(403,{error:'Read and accept the current research terms and privacy notice before using YouTube discovery.',code:'consent_required'});
      if(!key)return reply(503,{error:'YouTube is not connected yet. The owner needs to configure the server API key.',code:'missing_key'});
      const today=new Date().toISOString().slice(0,10);if(day!==today){day=today;calls=0;}
      if(calls>=Math.min(50,Math.max(1,dailyLimit))||active>=2)return reply(429,{error:'The server’s discovery allowance is reached or another search is running. Please try later.',code:'budget'});
@@ -42,6 +43,7 @@ export function createServer({key=process.env.YOUTUBE_API_KEY,accessCode=process
     }
     if(path==='/api/trends/preview')return reply(200,parseTrends(data.csv));
     if(path==='/api/trends/confirm')return reply(200,confirmTrends(parseTrends(data.csv),data.settings));
+    if(path==='/api/brief'&&data.videos?.records?.length&&data.policyVersion!=='2026-10-13')return reply(403,{error:'Accept the current research terms and privacy notice before processing YouTube evidence.',code:'consent_required'});
     if(path==='/api/brief')return reply(200,buildBrief(data));
     return reply(404,{error:'That research action is unavailable.',code:'not_found'});
    }catch(err){return reply(err.status||400,{error:err.status?err.message:err instanceof SyntaxError?'The request could not be read. Please try again.':String(err.message).slice(0,500),code:err.code||'invalid_request'});}
